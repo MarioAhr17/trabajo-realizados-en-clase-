@@ -1,0 +1,69 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<h1>CALCULADORA</h1>
+
+<div id="app">
+   <div>
+    nombre : <input type="text" v-model="persona.nombre"></input>
+   </div>
+   <div>
+    apellido : <input type="text" v-model="persona.apellido"></input>
+   </div>
+   <div>
+    celular : <input type="text" v-model="persona.celular"></input>
+   </div>
+   <div>
+    email : <input type="text" v-model="persona.email"></input>
+   </div>
+ 
+    <button @click="registrar()">Registrar</button>
+    <div>
+      <h5>Listado de Estudiantes</h1>
+      <ul>
+        <li v-for="(data,index) in listado">{{data}}
+          <button @click="eliminar(index)">X</button></li>
+      </ul>
+      <h3>No. Estudiantes : {{listado.length}}</h3>
+    </div>
+
+    <pre>
+        {{$data}}
+    </pre>
+</div>
+
+<script>
+  const { createApp } = Vue
+
+  createApp(
+    {
+    data() {
+      return {
+         persona:{
+            nombre : '',
+            apellido : '',
+            celular : '',
+            email : ''
+         },
+
+         listado : []
+       }
+    },
+    methods: {
+      registrar(){
+        const copy = {...this.persona};
+        this.listado.push(copy)
+        this.limpiar()
+      },
+      limpiar(){
+        this.persona.nombre = '',
+        this.persona.apellido = '',
+        this.persona.celular = '',
+        this.persona.email = ''
+      },
+
+      eliminar(pos){
+        this.listado.splice(pos,1)
+      }
+    }
+  }
+  ).mount('#app')
+</script>
