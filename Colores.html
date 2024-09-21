@@ -1,0 +1,53 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+    .titulo {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+        padding-top: 10px;
+    }
+    .texto {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .caja {
+        margin-top: 80px;
+    }
+    .select{
+        font-family: 'Times New Roman', Times, serif;
+    }
+</style>
+<center><h2 class="titulo">Selector Colores</h2></center>
+
+<div id="app">
+    <div class="texto">
+        Alto : <input type="number" v-model="alto"></input>
+        Ancho : <input type="number" v-model="ancho"></input> 
+        <select class="select" v-model="posicion">
+            <option value="0">morado</option>
+            <option value="1">Rojo</option>
+            <option value="2">naranjado</option>
+        </select>
+    </div>
+      
+    <div
+        :style="{ backgroundColor: color[posicion], width: ancho + 'px', height: alto + 'px' }"
+        class="caja"
+    ></div>
+    
+    <pre>
+        {{$data}}
+    </pre>
+</div>
+
+<script>
+    const { createApp } = Vue
+
+    createApp({
+        data() {
+            return {
+                posicion: 0,
+                ancho: 400,
+                alto: 200,
+                color: ["purple", "red", "orange"] 
+            }
+        }
+    }).mount('#app')
+</script>
