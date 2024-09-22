@@ -1,29 +1,35 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <style>
+    body {background-color: rgba(51, 70, 22, 0.5);}
     .titulo {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-        padding-top: 10px;
+        font-family: 'Times New Roman', Times, serif;
+        padding-top: 30px;
     }
     .texto {
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: 'Times New Roman', Times, serif;
     }
     .caja {
-        margin-top: 80px;
+        margin-top: 20px;
     }
     .select{
         font-family: 'Times New Roman', Times, serif;
     }
 </style>
-<center><h2 class="titulo">Selector Colores</h2></center>
+<center><h1 class="titulo">Selector de colores</h1></center>
+<hr style="border: 50px, color(srgb rgb(73, 16, 75) rgb(63, 57, 141) rgb(195, 209, 70));">
 
 <div id="app">
     <div class="texto">
         Alto : <input type="number" v-model="alto"></input>
         Ancho : <input type="number" v-model="ancho"></input> 
         <select class="select" v-model="posicion">
-            <option value="0">morado</option>
-            <option value="1">Rojo</option>
-            <option value="2">naranjado</option>
+            <option value="0">blanco</option>
+            <option value="1">Verde</option>
+            <option value="2">Rojo</option>
+            <option value="3">Amarillo</option>
+            <option value="4">naranja</option>
+            <option value="5">gris</option>
+            <option value="6">cafe</option>
         </select>
     </div>
       
@@ -44,9 +50,9 @@
         data() {
             return {
                 posicion: 0,
-                ancho: 400,
-                alto: 200,
-                color: ["purple", "red", "orange"] 
+                ancho: 100,
+                alto: 100,
+                color: ["white","green", "red", "yellow", "orange", "gray", "brown"]
             }
         }
     }).mount('#app')

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+<div id="app" class="container">
+   <h1>TABLA DE MULTIPLICAR</h1>
+   <div>
+     <label>DIGITE LA TABLA DE MULTIPLICAR A GENERAR</label>
+     <input type="number" @input="cambiar()"  v-model="numero">
+   </div>
+   <div>
+    <label>DIGITE EL NUMERO HASTA DONDE SE GENERARA LA TABLA DE MULTIPLICAR</label>
+    <input type="number"  v-model="limite">
+   </div>
+   <button @click="mostrar = true">GENERAR</button>
+   <div v-if="mostrar">
+    <div v-for="valor in numero">
+     <h3> TABLE DE MULTIPLICAR : {{valor}}</h3>
+     <ul>
+      <li v-for="data in limite">{{valor}} * {{data}} = {{valor * data}}</li>
+     </ul>
+    </div>
+   </div>
+</div>
+</div>
+  <pre>
+    {{$data}}
+  </pre>
+   
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script>
+  const { createApp } = Vue
+
+  createApp(
+    {
+    data() {
+      return {
+         numero : 0,
+         mostrar : false,
+         limite : 0
+       }
+    },
+    methods: {
+      cambiar(){
+        this.mostrar = false
+      }
+    }
+  }
+  ).mount('#app')
+</script>
+
+
+</body>
+</html><html>
+
+</html>
